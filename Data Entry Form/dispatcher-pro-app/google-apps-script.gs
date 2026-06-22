@@ -13,11 +13,11 @@
  */
 
 const SPREADSHEET_ID = '12h-hFEPh1q5SxlyeDRbqv_Nu1JuAkinzWPfKUFXf1Ao';
+const SHEET_NAME = 'DATABASE';
 
 function getTargetSheet() {
   const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-  const sheet = ss.getSheets()[0];
-  return sheet;
+  return ss.getSheetByName(SHEET_NAME);
 }
 
 function doPost(e) {
