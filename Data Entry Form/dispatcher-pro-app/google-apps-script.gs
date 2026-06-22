@@ -3,12 +3,14 @@ const SHEET_NAME = 'DATABASE';
 
 function getTargetSheet() {
   const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-  const sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    const names = ss.getSheets().map(s => s.getName());
-    throw new Error('Sheet "' + SHEET_NAME + '" not found. Available sheets: ' + names.join(', '));
+  const sheets = ss.getSheets();
+  for (let i = 0; i < sheets.length; i++) {
+    if (sheets[i].getName().toUpperCase() === SHEET_NAME.toUpperCase()) {
+      return sheets[i];
+    }
   }
-  return sheet;
+  const names = sheets.map(s => '"' + s.getName() + '"');
+  throw new Error('Sheet "' + SHEET_NAME + '" not found. Available sheets: ' + names.join(', '));
 }
 
 function doPost(e) {
