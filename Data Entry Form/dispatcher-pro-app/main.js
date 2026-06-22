@@ -44,7 +44,7 @@ app.on('activate', () => {
 });
 
 ipcMain.handle('submit-to-sheets', async (event, formData) => {
-  const webAppUrl = 'https://script.google.com/macros/s/AKfycbx5OlDDHCs8daIXA8mVQI67Xqnw7xI-0LPS2MLqa7GtbpyjQE5PJOJBXBhu4V-2Yha8eA/exec';
+  const webAppUrl = 'https://script.google.com/macros/s/AKfycbzqr7iCDKqvBYfNhmiuVDS9uo-rc0fLllKBW_9n39iPah3FXz2prAPvXsUpEL-2dJ7g3w/exec';
 
   try {
     const response = await fetch(webAppUrl, {
